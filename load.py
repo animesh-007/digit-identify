@@ -22,3 +22,5 @@ def init():
 	graph = tf.get_default_graph()
 
 	return loaded_model,graph
+
+	

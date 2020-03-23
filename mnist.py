@@ -15,6 +15,10 @@ from keras.layers import Dense, Dropout, Flatten,Input
 from keras.layers import Conv2D, MaxPooling2D
 from keras import backend as K
 
+
+
+
+
 batch_size = 128
 num_classes = 10
 epochs = 12
@@ -47,6 +51,8 @@ y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
 #Functional Api approach
+
+# convet model
 inpx = Input(shape=input_shape,name='inpx')
 
 x = Conv2D(filters=32,
@@ -74,7 +80,24 @@ print('Test loss:', score[0])
 print('Test accuracy:', score[1])
 
 
- 
+# dense model
+
+# model = sequential()
+# model.add(Flatten(input_shape))
+# model.add(Dense(42, activation = 'relu'))
+# model.add(Dense(10, activation = 'softmax'))
+
+# model.compile('rmsprop',
+#     loss= 'categoricalCrossentropy',
+#     metrics= ['accuracy'],
+#   )
+# model.fit(x_train,y_train,batch_size=batch_size,
+#           epochs=epochs,
+#           verbose=1,
+#           validation_data=(x_test, y_test))
+# score = model.evaluate(x_test, y_test, verbose=0)
+# print('Test loss:', score[0])
+# print('Test accuracy:', score[1])
 
 
 #save then model
@@ -83,31 +106,37 @@ with open("model.json","w") as json_file:
     json_file.write(model_json)
     
 model.save_weights("model.h5")
-    
 
-'''
-model = Sequential()
-model.add(Conv2D(32, kernel_size=(3, 3),
-                 activation='relu',
-                 input_shape=input_shape))
-model.add(Conv2D(64, (3, 3), activation='relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.25))
-model.add(Flatten())
-model.add(Dense(128, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(num_classes, activation='softmax'))
 
-model.compile(loss=keras.losses.categorical_crossentropy,
-              optimizer=keras.optimizers.Adadelta(),
-              metrics=['accuracy'])
+# model = Sequential()
+# model.add(Conv2D(32, kernel_size=(3, 3),
+#                  activation='relu',
+#                  input_shape=input_shape))
+# model.add(Conv2D(64, (3, 3), activation='relu'))
+# model.add(MaxPooling2D(pool_size=(2, 2)))
+# model.add(Dropout(0.25))
+# model.add(Flatten())
+# model.add(Dense(128, activation='relu'))
+# model.add(Dropout(0.5))
+# model.add(Dense(num_classes, activation='softmax'))
 
-model.fit(x_train, y_train,
-          batch_size=batch_size,
-          epochs=epochs,
-          verbose=1,
-          validation_data=(x_test, y_test))
-score = model.evaluate(x_test, y_test, verbose=0)
-print('Test loss:', score[0])
-print('Test accuracy:', score[1])
-'''
+# model.compile(loss=keras.losses.categorical_crossentropy,
+#               optimizer=keras.optimizers.Adadelta(),
+#               metrics=['accuracy'])
+
+# model.fit(x_train, y_train,
+#           batch_size=batch_size,
+#           epochs=epochs,
+#           verbose=1,
+#           validation_data=(x_test, y_test))
+# score = model.evaluate(x_test, y_test, verbose=0)
+# print('Test loss:', score[0])
+# print('Test accuracy:', score[1])
+
+
+
+
+
+
+
+

@@ -65,6 +65,39 @@
 			
 		});
 
+
+		// Model type
+		// 1st approach
+
+		// $("#model-type").change(function(){
+  // 		let model;
+  //   	if ($(this).val() == "1")
+  //   	{
+  //       model = createConvModel();
+  //   	}
+  //   	else if ($(this).val() == "2"){
+  //   		model = createDenseModel();
+  //   	}
+  //   	else {
+		// throw new Error(`Invalid model type: ${modelType}`);
+		// }
+		// return model;
+		// });
+
+		// 2nd approach
+		// $("#model-type").change(function(){
+		// 	loadModel($("#model-type").val())
+		// });
+
+		// let model;
+		// async function loadModel(name){
+		// 	$(".progress-bar").show();
+		// 	model = undefined;
+		// 	model = await tf.loadModel("./model.json");
+		// 	$(".progress-bar").hide();
+		// }
+
+
 		/* COLOR SELECTOR */
 
 		$( "#colors" ).change(function()
